@@ -7,6 +7,8 @@ import org.openftc.easyopencv.OpenCvPipeline;
 public class Step8Canny extends OpenCvPipeline {
 
     Mat cannyResult = new Mat();
+    public int lower = 100;
+    public int higher = 200;
 
     @Override
     public Mat processFrame(Mat input) {
@@ -14,9 +16,9 @@ public class Step8Canny extends OpenCvPipeline {
 
         // input: input image
         // cannyResult: output image
-        // 100: lower threshold
-        // 200: higher threshold
-        Imgproc.Canny(input, cannyResult, 100, 200);
+        // lower: lower threshold
+        // higher: higher threshold
+        Imgproc.Canny(input, cannyResult, lower, higher);
 
         return cannyResult;
     }
